@@ -45,14 +45,14 @@ class Arduino extends EventEmitter {
 
   pinMode(pin, mode) {
     return new Promise((resolve, reject) => {
-      this.writeData(pin | (mode << 4) | (1 << 5)).then(() => {
+      this.writeData(pin | (mode << 5) | (1 << 6)).then(() => {
         this.pending = resolve
       })
     })
   }
 
   async digitalWrite(pin, data) {
-    await this.writeData(pin | (data << 4))
+    await this.writeData(pin | (data << 5))
   }
 
   digitalRead(pin) {
