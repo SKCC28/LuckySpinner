@@ -1,0 +1,72 @@
+.vcenter {
+    vertical-align: middle;
+}
+.playAgain {
+    color: rgba(231, 231, 231, 0);
+}
+.custom-footer{
+    /*background: #eb4c56;*/
+    margin-top: 7%;
+    padding: 1%;
+}
+.alert-color{
+    font-size: 2em;
+}
+#canvasContainer {
+    position: relative;
+}
+
+#myCanvas {
+    z-index: 1;
+}
+
+#prizePointer {
+    position: absolute;
+    left: 207px;
+    top: 0px;
+    z-index: 999;
+}
+
+/*Added*/
+body {
+    background: url(../images/bg.jpg) no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.spin-button {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 250px;
+    height: 70px;
+    cursor: pointer;
+    margin: 0 auto;
+    border: 2px solid rgb(30, 205, 151);
+    -webkit-border-radius: 40px;
+    border-radius: 40px;
+    font: normal 37px/70px Helvetica, sans-serif;
+    color: rgb(30, 205, 151);
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0);
+    -webkit-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+    -moz-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+    -o-transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+    transition: background-color 0.3s cubic-bezier(0, 0, 0, 0), color 0.3s cubic-bezier(0, 0, 0, 0), width 0.3s cubic-bezier(0, 0, 0, 0), border-width 0.3s cubic-bezier(0, 0, 0, 0), border-color 0.3s cubic-bezier(0, 0, 0, 0);
+}
+.spin-button:hover {
+    color: rgba(255, 255, 255, 1);
+    background: rgb(30, 205, 151);
+}
+.spin-button:active {
+    border: 2px solid rgba(33, 224, 163, 1);
+    background: rgba(33, 224, 163, 1);
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
+}

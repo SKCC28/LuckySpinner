@@ -1,0 +1,23 @@
+{
+  "name": "lucky-spinner",
+  "version": "1.0.0",
+  "description": "Lucky Spinner for Activity Day 2017",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "cd node_modules/serialport && node-pre-gyp rebuild --target=1.6.11 --arch=x64 --dist-url=https://atom.io/download/atom-shell",
+    "rebuild": "cd node_modules/serialport && node-pre-gyp rebuild --target=1.6.11 --arch=x64 --dist-url=https://atom.io/download/atom-shell"
+  },
+  "repository": "https://github.com/SKCC28/LuckySpinner",
+  "keywords": [],
+  "author": "paphonb",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~1.6.2",
+    "electron-rebuild": "^1.5.11",
+    "node-pre-gyp": "^0.6.36"
+  },
+  "dependencies": {
+    "serialport": "^4.0.7"
+  }
+}
