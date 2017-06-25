@@ -70,3 +70,11 @@ body {
     -o-transition: none;
     transition: none;
 }
+
+#spinner {
+    display: none;
+}
+
+#loader {
+    margin-top: 100px;
+}

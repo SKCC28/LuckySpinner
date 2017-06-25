@@ -15,10 +15,11 @@
 </head>
 
 <body>
+<div id="spinner">
     <div class="container">
         <div class="page-header">
             <h1><span class="glyphicon glyphicon-play"></span> Spin to win!</h1>
-            <p class="lead">Click the button beside the wheel to begin spinning!</p>
+            <p class="lead">Press the button to begin spinning!</p>
         </div>
     </div>
     <div class="container">
@@ -27,7 +28,7 @@
                 <div class="power_controls text-center">
                     <br>
                     <br>
-                    <!-- Edited --><div id="spin_button" class="spin-button" alt="Spin" onClick="startSpin();">Press to spin</div>
+                    <!-- Edited --><div id="spin_button" class="spin-button" alt="Spin" onClick="alternateSpin();">Press to spin</div>
                 </div>
             </div>
             <div class="col-md-8" id="canvasContainer">
@@ -40,22 +41,25 @@
     </div>
     <footer class="custom-footer">
         <div class="container">
-            Copyright © 2016 SKCC | <a href="https://www.facebook.com/skcomclub">Facebook</a> | Email: computerclub@sk.ac.th
+            Copyright © 2017 SKCC | <a href="https://www.facebook.com/skcomclub">Facebook</a> | Email: computerclub@sk.ac.th
         </div>
     </footer>
-
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>  
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootbox.min.js"></script>
-    <script src="js/TweenMax.min.js"></script>
-    <script src="js/Winwheel.js"></script>
-    <script src="js/seedrandom.min.js"></script>
-    <script src="js/mywheel.js"></script>
-    <script src="js/controller.js"></script>
-    <script>if (window.module) module = window.module;</script>
+</div>
+<div id="loader" class="container">
+    <h1>Loading...</h1>
+</div>
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>  
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootbox.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/Winwheel.js"></script>
+<script src="js/seedrandom.min.js"></script>
+<script src="js/mywheel.js"></script>
+<script src="js/client.js"></script>
+<script>if (window.module) module = window.module;</script>
 </body>
 
 </html>

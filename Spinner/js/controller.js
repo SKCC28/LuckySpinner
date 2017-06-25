@@ -1,24 +1,24 @@
-function showConnecting() {
-  bootbox.dialog({
-    message: 'Connecting...',
-    title: 'Lucky Spinner',
-    className: 'alert-color',
-    buttons: {
-        
-    }
-  })
+let success = false
+let allowed = true
+  
+function showSpinner() {
+  $('#loader').hide()
+  $('#spinner').show()
 }
 
-async function start() {
-  const path = require('path')
-  const { Arduino, Button } = require(path.resolve('Spinner/js/arduino'))
-  const arduino = new Arduino('COM6')
-  showConnecting()
-  await arduino.connect()
-  bootbox.hideAll()
+function stopSpin() {
+  theWheel.animation.type = 'spinToStop'
+  theWheel.animation.duration = 1
+  theWheel.animation.spins = 8
+  startSpin()
+}
 
-  let success = false
-  let allowed = true
+async function start(port) {
+  const path = require('path')
+  const { Arduino, Button, modes } = require(path.resolve('Spinner/js/arduino'))
+  const arduino = new Arduino(port)
+  await arduino.connect()
+  showSpinner()
 
   const spinButton = new Button(10, arduino)
   spinButton.on('down', () => {
@@ -30,26 +30,26 @@ async function start() {
     if (!success) {
       allowed = false
       bootbox.hideAll()
-      setTimeout(() => { allowed = true }, 100)
+      setTimeout(() => { allowed = true }, 300)
     } else {
       $("#spin_button").text("Release to stop");
     }
   })
   spinButton.on('up', () => {
     if (!success) return
-    theWheel.animation.type = 'spinToStop'
-    theWheel.animation.duration = 1
-    theWheel.animation.spins = 8
     wheelSpinning = false
-    startSpin()
+    stopSpin()
+    $("#spin_button").text("Stopping...");
     success = false
   })
 
-  const resetButton = new Button(8, arduino)
-  resetButton.on('press', () => {
-    bootbox.hideAll()
-    resetWheel()
+  const reloadButton = new Button(8, arduino)
+  reloadButton.on('press', () => {
+    location.reload()
   })
 }
 
-start()
+module.exports = {
+  start: start,
+  alternateSpin: stopSpin
+}

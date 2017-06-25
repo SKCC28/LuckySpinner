@@ -136,7 +136,7 @@ function startSpin() {
         }
 
         // Disable the spin button so can't click again while wheel is spinning.
-        document.getElementById('spin_button').innerHTML = "Stopping....";
+        document.getElementById('spin_button').innerHTML = "Spinning....";
         document.getElementById('spin_button').className = "spin-button";
         // Begin the spin animation by calling startAnimation on the wheel object.
         theWheel.startAnimation();
