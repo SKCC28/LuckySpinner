@@ -11,8 +11,11 @@ class Button extends EventEmitter {
     this.arduino.pinMode(pin, modes.INPUT)
     this.arduino.on('change', (pin, value) => {
       if (pin != this.pin) return
-      if (this.previous == 1 && value == 0) {
+      if (value == 0) {
         this.emit('press')
+        this.emit('up')
+      } else if (value == 1) {
+        this.emit('down')
       }
       this.previous = value
     })

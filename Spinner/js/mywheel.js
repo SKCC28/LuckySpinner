@@ -120,7 +120,7 @@ function powerSelected(powerLevel) {
 // Click handler for spin button.
 // -------------------------------------------------------
 function startSpin() {
-    if (wheelSpinning && running) return;
+    if (wheelSpinning && running) return false;
     // Ensure that spinning can't be clicked again while already running.
     if (wheelSpinning == false) {
         // Based on the power level selected adjust the number of spins for the wheel, the more times is has
@@ -136,7 +136,7 @@ function startSpin() {
         }
 
         // Disable the spin button so can't click again while wheel is spinning.
-        document.getElementById('spin_button').innerHTML = "Spinning....";
+        document.getElementById('spin_button').innerHTML = "Stopping....";
         document.getElementById('spin_button').className = "spin-button";
         // Begin the spin animation by calling startAnimation on the wheel object.
         theWheel.startAnimation();
@@ -144,9 +144,10 @@ function startSpin() {
         // the current animation. The user will have to reset before spinning again.
         wheelSpinning = true;
         running = true;
-    }
-    else {
+        return true;
+    } else {
         resetWheel();
+        return false;
     }
 }
 
@@ -159,7 +160,7 @@ function resetWheel() {
     theWheel.draw();                // Call draw to render changes to the wheel.
 
     wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
-    $("#spin_button").text("Spin");
+    $("#spin_button").text("Press to spin");
     theWheel.animation.stopAngle = getStopAngle();
 }
 
