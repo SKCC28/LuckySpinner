@@ -20,7 +20,7 @@ async function start(port) {
   await arduino.connect()
   showSpinner()
 
-  const spinButton = new Button(10, arduino)
+  const spinButton = new Button(10, arduino, modes.INPUT_PULLUP)
   spinButton.on('down', () => {
     if (!allowed) return
     theWheel.animation.type = 'spinOngoing'
@@ -43,7 +43,7 @@ async function start(port) {
     success = false
   })
 
-  const reloadButton = new Button(8, arduino)
+  const reloadButton = new Button(8, arduino, modes.INPUT_PULLUP)
   reloadButton.on('press', () => {
     location.reload()
   })

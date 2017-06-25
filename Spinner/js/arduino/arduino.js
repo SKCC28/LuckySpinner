@@ -45,7 +45,7 @@ class Arduino extends EventEmitter {
 
   pinMode(pin, mode) {
     return new Promise((resolve, reject) => {
-      this.writeData(pin | (mode << 5) | (1 << 6)).then(() => {
+      this.writeData(pin | (mode << 5) | (1 << 7)).then(() => {
         this.pending = resolve
       })
     })
